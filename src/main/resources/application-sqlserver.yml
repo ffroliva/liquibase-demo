@@ -1,0 +1,32 @@
+spring:
+  # ======================================================================
+  # DATASOURCE CONFIGURATION
+  # ======================================================================
+  datasource:
+    url: jdbc:sqlserver://;serverName=localhost;databaseName=demodb;encrypt=true;trustServerCertificate=true;
+    username: sa
+    password: StrongPassword1234@
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  # ======================================================================
+  # JPA CONFIGURATION
+  # ======================================================================
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        use_sql_comments: false
+        user_sql_comments: false
+        default-schema: dbo
+        hbm2ddl:
+          auto: none # none, create-drop, update
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  sql:
+    init:
+      platform: sqlserver
+      mode: never

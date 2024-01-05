@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  demodb-postgres:
+    image: postgres:16
+    container_name: demo-db
+    hostname: demo-db
+    volumes:
+      - ./volumes/postgres/demodb-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=demodb
+      - POSTGRES_USER=demodb
+      - POSTGRES_DB=demodb

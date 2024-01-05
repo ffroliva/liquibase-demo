@@ -1,0 +1,50 @@
+# ======================================================================
+# This profile is used to generate disk based h2 database so that we can
+# generate diff changelogs against it.
+#
+# Here are the steps to keep track of the application changelogs:
+#
+# 1. In the command line, execute:
+# mvn clean "-DskipTests" spring-boot:run -Ph2
+#
+# this command will generate a database file called demodb-liquibase.mv.db
+# under the user home directory.
+#
+# ======================================================================
+spring:
+  # ======================================================================
+  # DATASOURCE CONFIGURATION
+  # ======================================================================
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/demodb-liquibase;DB_CLOSE_ON_EXIT=FALSE;
+    username: sa
+    password:
+  # ======================================================================
+  # JPA CONFIGURATION
+  # ======================================================================
+  sql:
+    init:
+      platform: h2
+      mode: never
+  # ======================================================================
+  # JPA CONFIGURATION
+  # ======================================================================
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        use_sql_comments: false
+        user_sql_comments: false
+        default-schema: public
+        hbm2ddl:
+          auto: none # none, create-drop, update
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy

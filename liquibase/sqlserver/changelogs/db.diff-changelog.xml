@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="ffrol (generated)" created="2024-01-05 14:52+0000" id="1704466353420-1">
+        <createTable tableName="person">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="personPK"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ffrol (generated)" created="2024-01-05 14:52+0000" id="1704466353420-2">
+        <dropView viewName="spt_values"/>
+    </changeSet>
+    <changeSet author="ffrol (generated)" created="2024-01-05 14:52+0000" id="1704466353420-3">
+        <dropTable tableName="MSreplication_options"/>
+    </changeSet>
+    <changeSet author="ffrol (generated)" created="2024-01-05 14:52+0000" id="1704466353420-4">
+        <dropTable tableName="spt_fallback_db"/>
+    </changeSet>
+    <changeSet author="ffrol (generated)" created="2024-01-05 14:52+0000" id="1704466353420-5">
+        <dropTable tableName="spt_fallback_dev"/>
+    </changeSet>
+    <changeSet author="ffrol (generated)" created="2024-01-05 14:52+0000" id="1704466353420-6">
+        <dropTable tableName="spt_fallback_usg"/>
+    </changeSet>
+    <changeSet author="ffrol (generated)" created="2024-01-05 14:52+0000" id="1704466353420-7">
+        <dropTable tableName="spt_monitor"/>
+    </changeSet>
+</databaseChangeLog>

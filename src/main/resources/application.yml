@@ -1,0 +1,35 @@
+# ======================================================================
+# SERVER CONFIGURATION
+# ======================================================================
+server:
+  port : 8080
+# ======================================================================
+# SPRING CONFIGURATION
+# ======================================================================
+spring:
+  application:
+    name: demo-service
+  output.ansi.enabled: always
+  profiles:
+    active: h2 # profile used to for testing, should be replaced by accordingly
+  # ======================================================================
+  # SPRING LIQUIBASE CONFIGURATION
+  # ======================================================================
+  liquibase:
+    password: ${spring.datasource.password}
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    driver-class-name: ${spring.datasource.driver-class-name}
+    change-log: file:liquibase/${spring.sql.init.platform}/changelogs/db.changelog-master.xml
+    enabled: true
+
+# ======================================================================
+# LOGGING CONFIGURATION
+# ======================================================================
+logging:
+  level:
+    org.hibernate.SQL: DEBUG #DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO #TRACE
+    com.riskcontrollimited.nfrcapital: DEBUG
+  file:
+    name: logs/demo-logging.log

@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  demodb-mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    volumes: 
+      - ./volumes/mssql/sqlserver:/var/opt/sqlserver
+      - ./volumes/mssql/backups:/var/opt/mssql/backups
+      - ./volumes/mssql/data:/var/opt/mssql/data
+      - ./volumes/mssql/log:/var/opt/mssql/log
+    environment:
+      - MSSQL_SA_PASSWORD=StrongPassword1234@
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
