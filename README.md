@@ -38,7 +38,7 @@ mvn clean package -DskipTests liquibase:diff -Psqlserver
 
 ## Generate Diff changelog for PostgreSQL
 
-### Run MS SQL Server from docker
+### Run PostgresSQL from docker
 
 Open a new terminal an run:
 
