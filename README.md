@@ -32,7 +32,7 @@ docker compose -f ./docker/sqlserver.yml up
 mvn clean package -DskipTests liquibase:diff -Ph2
 ```
 
-> Change log will be generated at [liquibase/sqlserver/changelogs/db.diff-changelog.xml](liquibase/sqlserver/changelogs/db.diff-changelog.xml)
+> Change log will be generated at [liquibase/h2/changelogs/db.diff-changelog.xml](liquibase/sqlserver/changelogs/db.diff-changelog.xml)
 >
 > Changelog **will not** contain the `my_sequence` from [package-info.java](src/main/java/com/example/demo/model/package-info.java).
 
@@ -68,6 +68,6 @@ mvn clean package -DskipTests liquibase:diff -Ph2
 mvn clean package -DskipTests liquibase:diff -Ph2
 ```
 
-> Change log will be generated at [liquibase/postgres/changelogs/db.diff-changelog.xml](liquibase/postgres/changelogs/db.diff-changelog.xml)
+> Change log will be generated at [liquibase/h2/changelogs/db.diff-changelog.xml](liquibase/postgres/changelogs/db.diff-changelog.xml)
 >
 > Changelog **will** contain the `my_sequence` from [package-info.java](src/main/java/com/example/demo/model/package-info.java), however, the sequence will have **wrong increment size**.
